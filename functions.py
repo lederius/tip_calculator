@@ -7,9 +7,11 @@ def validate_tip(cost):
             tip = float(input('How much percent do you want to tip? Numbers only: '))
             correct = input(f'Is the tip amount of {tip}% correct?: y/n: ')
             if correct == 'y':
-                tip = tip * 0.1
+                tip = tip * 0.01
+                print(f'the tip before cost {tip}')
                 tip = tip * cost
                 tip = round(tip,2)
+                print(f'the tip {tip}')
         elif tip_type == 'n':
             tip = float(input('What is the exact amount you want to tip? Numbers only: '))
             correct = input(f'Is the tip amount of ${tip} correct?: y/n: ')
@@ -31,8 +33,7 @@ def validate_cost(cost):
 
 
 def total_bill(tip, meal):
-
-    sales_tax = meal * 0.1
+    sales_tax = round((meal * 0.1),2)
     print(f'meal-->{meal}, tip-->{tip}, tax-->{sales_tax}')
     amount_of_people = int(input('How man people are splitting the bill? Numbers only: '))
     print(type(amount_of_people), "!!!")
@@ -41,4 +42,4 @@ def total_bill(tip, meal):
         amount_of_people = input('How man people are splitting the bill? Numbers only :')
     total_bill = float(tip + meal + sales_tax)
     total_bill /= amount_of_people
-    return total_bill
+    return round(total_bill, 2)
