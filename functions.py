@@ -17,6 +17,7 @@ def validate_tip(cost):
             #correct here is to verify the tip amount is correct
             correct = input(f'Is the tip amount of {tip}% correct?: y/n: ')
             if correct == 'y':
+                #feedback: dont redeclare tip 3 dif times
                 #here the tip is chagned from percent to a float
                 tip = tip * 0.01
                 #here tip is multiplied by cost becuase we need to get a tip amount based of the cost of the meal
@@ -31,10 +32,12 @@ def validate_tip(cost):
             correct = input(f'Is the tip amount of ${tip} correct?: y/n: ')
             #here the use deems the tip is correct
             if correct == 'y':
-                #here tip is multiplied by cost becuase we need to get a tip amount based of the cost of the meal
-                tip *= cost
-                #here tip is rounded to a 2 digit decimal because floats can become rather long.
-                tip = round(tip, 2)    
+                ##here tip is multiplied by cost becuase we need to get a tip amount based of the cost of the meal
+                #tip *= cost
+                ##here tip is rounded to a 2 digit decimal because floats can become rather long.
+                #tip = round(tip, 2)    
+                #feedback: above code broken, tip doesn't need to be multiplied when exact amount
+                return tip
         #edge cases can happen and i want to be prepared 
         else:
             tip_type =  input('Error, we just need a "y" or a "no for if your type will be a percentage.: ')
